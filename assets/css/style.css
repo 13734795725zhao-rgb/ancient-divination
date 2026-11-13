@@ -241,6 +241,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 .prose p { margin: 0; text-wrap: pretty; }
 
+/* .prose p 的 margin:0 会盖掉上面的通用兄弟间距，这里补回段落间距 */
+.prose * + p { margin-top: 1.5em; }
+
 .prose h2 {
   margin-top: 2.6em;
   font-size: 1.375rem;
