@@ -474,6 +474,7 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.28;
   letter-spacing: 0.06em;
   text-wrap: balance;
+  word-break: auto-phrase;
 }
 
 .post__dek {
