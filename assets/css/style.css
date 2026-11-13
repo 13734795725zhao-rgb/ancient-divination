@@ -450,15 +450,16 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* 文章页 -------------------------------------------------- */
+/* 标题栏比正文栏宽 6rem，左边缘对齐；长标题因此能落在更少、更完整的行上 */
 .post {
-  max-width: var(--maxw);
+  max-width: calc(44rem + var(--gutter) * 2);
   margin: 0 auto;
   padding: clamp(3rem, 9vh, 6.5rem) var(--gutter) clamp(4rem, 9vh, 7rem);
 }
 
 .post__head {
-  max-width: var(--measure);
-  margin: 0 auto clamp(2.5rem, 6vh, 4rem);
+  max-width: none;
+  margin: 0 0 clamp(2.5rem, 6vh, 4rem);
   padding-bottom: clamp(1.75rem, 4vh, 2.75rem);
   border-bottom: 1px solid var(--ink);
 }
@@ -487,7 +488,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .post__body {
   max-width: var(--measure);
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* 首字下沉：仅当正文以段落开头时生效，避免落在章节中间的段落上 */
@@ -502,7 +503,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .post__foot {
   max-width: var(--measure);
-  margin: clamp(3rem, 8vh, 5rem) auto 0;
+  margin: clamp(3rem, 8vh, 5rem) 0 0;
   padding-top: 2rem;
   border-top: 1px solid var(--rule);
   display: flex;
