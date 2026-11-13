@@ -336,6 +336,8 @@ img { max-width: 100%; height: auto; display: block; }
 
 .table-wrap table { min-width: 32rem; }
 
+.table-wrap td:first-child { white-space: nowrap; }
+
 .prose img {
   margin: 2.4em 0;
   border: 1px solid var(--rule);
@@ -487,8 +489,8 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 auto;
 }
 
-/* 首字下沉：中文首字即是"字"，与西文 drop cap 同构 */
-.post__body > p:first-of-type::first-letter {
+/* 首字下沉：仅当正文以段落开头时生效，避免落在章节中间的段落上 */
+.post__body > p:first-child::first-letter {
   float: left;
   font-size: 3.6em;
   line-height: 0.92;
@@ -644,7 +646,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   .entry__title { font-size: 1.0625rem; }
 
-  .post__body > p:first-of-type::first-letter { font-size: 2.8em; }
+  .post__body > p:first-child::first-letter { font-size: 2.8em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
