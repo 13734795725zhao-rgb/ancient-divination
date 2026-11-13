@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post__head">
+    <p class="label">{{ page.date | date: "%Y 年 %m 月 %d 日" }}{% if page.category %}<span>{{ page.category }}</span>{% endif %}</p>
+    <h1 class="post__title">{{ page.title }}</h1>
+    {% if page.summary %}<p class="post__dek">{{ page.summary }}</p>{% endif %}
+  </header>
+
+  <div class="prose post__body">
+    {{ content }}
+  </div>
+
+  <footer class="post__foot">
+    <div class="seal seal--sm" aria-hidden="true"><span>占</span></div>
+    <a class="post__back" href="{{ '/' | relative_url }}#writings">← 返回目录</a>
+  </footer>
+</article>

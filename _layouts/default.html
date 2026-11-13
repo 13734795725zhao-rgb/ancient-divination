@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.layout == 'post' %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | strip_newlines }}">
+  <meta name="author" content="{{ site.author }}">
+  <meta property="og:title" content="{% if page.layout == 'post' %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{{ page.description | default: site.description | strip_newlines }}">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%239E3B2C'/><text x='16' y='23' font-size='20' font-family='serif' fill='%23F2EFE7' text-anchor='middle'>占</text></svg>">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="masthead__mark" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav class="masthead__nav">
+      <a href="{{ '/' | relative_url }}#origin">缘起</a>
+      <a href="{{ '/' | relative_url }}#writings">文章</a>
+      <a href="{{ site.repository }}" target="_blank" rel="noopener">源代码</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    {{ content }}
+  </main>
+
+  <footer class="site-foot">
+    <div class="seal" aria-hidden="true"><span>占</span></div>
+    <p class="site-foot__line">
+      <span>{{ site.title }}</span>
+      <span class="site-foot__dot">·</span>
+      <span>{{ site.tagline }}</span>
+    </p>
+    <p class="site-foot__meta">© {{ site.time | date: "%Y" }} {{ site.author }}　本页文字与图形均为原创</p>
+  </footer>
+</body>
+</html>

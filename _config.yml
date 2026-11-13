@@ -1,0 +1,30 @@
+title: 古老的占卜术
+tagline: 卜筮之学研究与记录
+description: >-
+  关于占卜术的读书笔记、技法梳理与实作记录。从甲骨灼兆到蓍草演卦，从星野分野到牌阵铺陈。
+author: 幻蝶
+lang: zh-CN
+timezone: Asia/Shanghai
+
+url: "https://13734795725zhao-rgb.github.io"
+baseurl: "/ancient-divination"
+repository: "https://github.com/13734795725zhao-rgb/ancient-divination"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+permalink: /posts/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - .gitignore

@@ -1,0 +1,102 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="hero__text">
+    <p class="hero__kicker">卜筮 · 象数 · 义理</p>
+    <h1 class="hero__title">{{ site.title }}</h1>
+    <p class="hero__dek">一部关于问卜之学的开放笔记。从甲骨灼兆到蓍草演卦，从星野分野到牌阵铺陈——记录源流，也记录今日的实践与疑问。</p>
+  </div>
+
+  <div class="hero__figure" aria-hidden="true">
+    <svg class="bagua" viewBox="0 0 400 400" role="presentation">
+      <g fill="none" stroke="#C8C2B0" stroke-width="0.8">
+        <circle cx="200" cy="200" r="176"/>
+        <circle cx="200" cy="200" r="120"/>
+        <circle cx="200" cy="200" r="7"/>
+      </g>
+      <g fill="#6E7563">
+        <g transform="translate(200 200) rotate(0) translate(0 -148)">
+          <rect x="-11" y="-7" width="22" height="2.4"/>
+          <rect x="-11" y="0" width="22" height="2.4"/>
+          <rect x="-11" y="7" width="22" height="2.4"/>
+        </g>
+        <g transform="translate(200 200) rotate(-45) translate(0 -148)">
+          <rect x="-11" y="-7" width="9" height="2.4"/><rect x="2" y="-7" width="9" height="2.4"/>
+          <rect x="-11" y="0" width="22" height="2.4"/>
+          <rect x="-11" y="7" width="22" height="2.4"/>
+        </g>
+        <g transform="translate(200 200) rotate(-90) translate(0 -148)">
+          <rect x="-11" y="-7" width="22" height="2.4"/>
+          <rect x="-11" y="0" width="9" height="2.4"/><rect x="2" y="0" width="9" height="2.4"/>
+          <rect x="-11" y="7" width="22" height="2.4"/>
+        </g>
+        <g transform="translate(200 200) rotate(-135) translate(0 -148)">
+          <rect x="-11" y="-7" width="9" height="2.4"/><rect x="2" y="-7" width="9" height="2.4"/>
+          <rect x="-11" y="0" width="9" height="2.4"/><rect x="2" y="0" width="9" height="2.4"/>
+          <rect x="-11" y="7" width="22" height="2.4"/>
+        </g>
+        <g transform="translate(200 200) rotate(180) translate(0 -148)">
+          <rect x="-11" y="-7" width="9" height="2.4"/><rect x="2" y="-7" width="9" height="2.4"/>
+          <rect x="-11" y="0" width="9" height="2.4"/><rect x="2" y="0" width="9" height="2.4"/>
+          <rect x="-11" y="7" width="9" height="2.4"/><rect x="2" y="7" width="9" height="2.4"/>
+        </g>
+        <g transform="translate(200 200) rotate(135) translate(0 -148)">
+          <rect x="-11" y="-7" width="22" height="2.4"/>
+          <rect x="-11" y="0" width="9" height="2.4"/><rect x="2" y="0" width="9" height="2.4"/>
+          <rect x="-11" y="7" width="9" height="2.4"/><rect x="2" y="7" width="9" height="2.4"/>
+        </g>
+        <g transform="translate(200 200) rotate(90) translate(0 -148)">
+          <rect x="-11" y="-7" width="9" height="2.4"/><rect x="2" y="-7" width="9" height="2.4"/>
+          <rect x="-11" y="0" width="22" height="2.4"/>
+          <rect x="-11" y="7" width="9" height="2.4"/><rect x="2" y="7" width="9" height="2.4"/>
+        </g>
+        <g transform="translate(200 200) rotate(45) translate(0 -148)">
+          <rect x="-11" y="-7" width="22" height="2.4"/>
+          <rect x="-11" y="0" width="22" height="2.4"/>
+          <rect x="-11" y="7" width="9" height="2.4"/><rect x="2" y="7" width="9" height="2.4"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section class="section" id="origin">
+  <div class="section__rail">
+    <p class="label">缘起<span>ORIGIN</span></p>
+  </div>
+  <div class="section__body prose">
+    {{ content }}
+  </div>
+</section>
+
+<section class="section" id="writings">
+  <div class="section__rail">
+    <p class="label">文章<span>WRITINGS</span></p>
+  </div>
+  <div class="section__body">
+    {% if site.posts.size > 0 %}
+    <ol class="writings">
+      {% for post in site.posts %}
+      <li class="entry">
+        <a class="entry__link" href="{{ post.url | relative_url }}">
+          <span class="entry__no">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          <span class="entry__main">
+            <span class="entry__date">{{ post.date | date: "%Y.%m.%d" }}</span>
+            <span class="entry__title">{{ post.title }}</span>
+            {% assign blurb = post.summary | default: post.excerpt | strip_html | strip_newlines %}
+            {% if blurb != "" %}
+            <span class="entry__excerpt">{{ blurb | truncate: 72 }}</span>
+            {% endif %}
+          </span>
+          <span class="entry__go" aria-hidden="true">→</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="writings__note">共 {{ site.posts.size }} 篇　·　按发布时间倒序</p>
+    {% else %}
+    <p class="writings__empty">尚无文章。第一篇文章发布后，此处会自动生成条目。</p>
+    {% endif %}
+  </div>
+</section>
