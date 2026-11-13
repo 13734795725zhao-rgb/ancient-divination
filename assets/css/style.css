@@ -449,6 +449,10 @@ img { max-width: 100%; height: auto; display: block; }
   border-bottom: 1px solid var(--ink);
 }
 
+.post__head .label {
+  letter-spacing: 0.14em;
+}
+
 .post__title {
   margin: 1.25rem 0 0;
   font-size: clamp(2rem, 4.4vw, 3.1rem);
