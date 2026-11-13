@@ -329,6 +329,18 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.8;
 }
 
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrap table { min-width: 32rem; }
+
+.prose img {
+  margin: 2.4em 0;
+  border: 1px solid var(--rule);
+}
+
 .prose th {
   text-align: left;
   font-weight: 600;
