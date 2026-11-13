@@ -340,13 +340,18 @@ img { max-width: 100%; height: auto; display: block; }
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9375rem;
-  line-height: 1.8;
+  font-size: 0.875rem;
+  line-height: 1.75;
 }
 
 .table-wrap {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+/* 宽屏下表格可用满标题栏的宽度，避免长文本列被压得过窄 */
+@media (min-width: 900px) {
+  .table-wrap { width: calc(100% + 6rem); }
 }
 
 .table-wrap table { min-width: 32rem; }
