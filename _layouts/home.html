@@ -76,8 +76,9 @@ layout: default
   </div>
   <div class="section__body">
     {% if site.posts.size > 0 %}
+    {% assign ordered = site.posts | reverse %}
     <ol class="writings">
-      {% for post in site.posts %}
+      {% for post in ordered %}
       <li class="entry">
         <a class="entry__link" href="{{ post.url | relative_url }}">
           <span class="entry__no">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
@@ -94,7 +95,7 @@ layout: default
       </li>
       {% endfor %}
     </ol>
-    <p class="writings__note">共 {{ site.posts.size }} 篇　·　按发布时间倒序</p>
+    <p class="writings__note">共 {{ site.posts.size }} 篇　·　按时间先后排列</p>
     {% else %}
     <p class="writings__empty">尚无文章。第一篇文章发布后，此处会自动生成条目。</p>
     {% endif %}
