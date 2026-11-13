@@ -260,6 +260,21 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--ink);
 }
 
+.prose h4 {
+  margin-top: 2em;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+/* 中文强调改用楷体，避免合成斜体 */
+.prose em {
+  font-style: normal;
+  font-family: var(--kai);
+  color: var(--ink-soft);
+}
+
 .prose a {
   color: var(--ink);
   background-image: linear-gradient(var(--cinnabar), var(--cinnabar));
