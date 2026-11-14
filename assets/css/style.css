@@ -605,7 +605,7 @@ img { max-width: 100%; height: auto; display: block; }
   grid-template-columns: minmax(0, 1fr) 11rem;
   align-items: stretch;
   gap: clamp(1.75rem, 4vw, 3.5rem);
-  max-width: 50rem;
+  max-width: 56rem;
 }
 
 .patronage__text {
@@ -717,6 +717,28 @@ img { max-width: 100%; height: auto; display: block; }
 .hero__figure { animation: ink-in 1.6s var(--ease) 0.2s both; }
 
 /* 响应式 -------------------------------------------------- */
+@media (max-width: 1024px) {
+  .patronage__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .patronage__text {
+    min-height: 0;
+    justify-content: flex-start;
+    gap: 0.9rem;
+  }
+
+  .patronage__qr { width: 9rem; }
+
+  .patronage__qr a { height: auto; }
+
+  .patronage__qr img {
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: minmax(0, 1fr);
@@ -742,25 +764,6 @@ img { max-width: 100%; height: auto; display: block; }
 
   .label { flex-direction: row; align-items: baseline; gap: 0.75rem; }
 
-  .patronage__row {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
-  }
-
-  .patronage__text {
-    min-height: 0;
-    justify-content: flex-start;
-    gap: 0.9rem;
-  }
-
-  .patronage__qr { width: 9rem; }
-
-  .patronage__qr a { height: auto; }
-
-  .patronage__qr img {
-    height: auto;
-    aspect-ratio: 1;
-  }
 }
 
 @media (max-width: 640px) {
