@@ -718,6 +718,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* 响应式 -------------------------------------------------- */
 @media (max-width: 1024px) {
+  /* 窄屏允许在「欢迎」前自然断行，避免把「有所得」拆开 */
+  .patronage__link-wrap { white-space: normal; }
+
   .patronage__row {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
