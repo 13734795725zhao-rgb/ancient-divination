@@ -29,13 +29,62 @@
   </main>
 
   <footer class="site-foot">
-    <div class="seal" aria-hidden="true"><span>占</span></div>
-    <p class="site-foot__line">
-      <span>{{ site.title }}</span>
-      <span class="site-foot__dot">·</span>
-      <span>{{ site.tagline }}</span>
-    </p>
-    <p class="site-foot__meta">© {{ site.time | date: "%Y" }} {{ site.author }}　本页文字与图形均为原创</p>
+    <section class="patronage" id="patronage" aria-labelledby="patronage-title">
+      <div class="patronage__text">
+        <p class="label" id="patronage-title">随喜结缘<span>PATRONAGE</span></p>
+        <p class="patronage__lead">如果你觉得这些占卜文章有点意思，可以请我喝杯茶、添盏灯油。</p>
+
+        <ol class="tiers">
+          <li class="tier">
+            <a class="tier__link" href="https://afdian.com/a/HuanDieHD/plan" target="_blank" rel="noopener">
+              <span class="tier__no" aria-hidden="true">一</span>
+              <span class="tier__body">
+                <span class="tier__name">随喜一盏灯</span>
+                <span class="tier__desc">任意金额，多少随心</span>
+              </span>
+              <span class="tier__go" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="tier">
+            <a class="tier__link" href="https://afdian.com/a/HuanDieHD/plan" target="_blank" rel="noopener">
+              <span class="tier__no" aria-hidden="true">二</span>
+              <span class="tier__body">
+                <span class="tier__name">解惑茶资</span>
+                <span class="tier__desc">看一次具体解读</span>
+              </span>
+              <span class="tier__go" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li class="tier">
+            <a class="tier__link" href="https://afdian.com/a/HuanDieHD/plan" target="_blank" rel="noopener">
+              <span class="tier__no" aria-hidden="true">三</span>
+              <span class="tier__body">
+                <span class="tier__name">月下陪读</span>
+                <span class="tier__desc">跟我长期读象写文</span>
+              </span>
+              <span class="tier__go" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+
+        <p class="patronage__note">所有赞助都是自愿结缘，不承诺结果，不替你做人生决定，只提供多一个看自己的角度。</p>
+      </div>
+
+      <figure class="patronage__qr">
+        <img src="{{ '/assets/img/afdian-qr.png' | relative_url }}" alt="爱发电赞赏二维码" width="260" height="260" loading="lazy">
+        <figcaption>扫码随喜</figcaption>
+      </figure>
+    </section>
+
+    <div class="site-foot__base">
+      <div class="seal" aria-hidden="true"><span>占</span></div>
+      <p class="site-foot__line">
+        <span>{{ site.title }}</span>
+        <span class="site-foot__dot">·</span>
+        <span>{{ site.tagline }}</span>
+      </p>
+      <p class="site-foot__meta">© {{ site.time | date: "%Y" }} {{ site.author }}　本页文字与图形均为原创</p>
+    </div>
   </footer>
 </body>
 </html>
