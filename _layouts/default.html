@@ -40,7 +40,7 @@
 
         <figure class="patronage__qr">
           <a href="https://afdian.com/a/HuanDieHD/plan" target="_blank" rel="noopener" aria-label="扫码前往爱发电随喜结缘">
-            <img src="{{ '/assets/img/afdian-qr.png' | relative_url }}" alt="爱发电赞赏二维码" width="232" height="232" loading="lazy">
+            <img src="{{ '/assets/img/afdian-qr.png' | relative_url }}" alt="爱发电赞赏二维码" width="232" height="232">
           </a>
           <figcaption>扫码随喜自愿</figcaption>
         </figure>
@@ -57,5 +57,32 @@
       <p class="site-foot__meta">© {{ site.time | date: "%Y" }} {{ site.author }}　本页文字与图形均为原创</p>
     </div>
   </footer>
+
+  <script>
+  /* 窄屏把对照表转成「记录卡」：保留表格语义，由 CSS 在 640px 以下改写排布。
+     无脚本时表格仍可横向滚动，属于渐进增强。 */
+  (function () {
+    var tables = document.querySelectorAll('.table-wrap table');
+    if (!tables.length) return;
+    Array.prototype.forEach.call(tables, function (table) {
+      var labels = Array.prototype.map.call(
+        table.querySelectorAll('thead th'),
+        function (th) { return th.textContent.trim(); }
+      );
+      if (!labels.length) return;
+      Array.prototype.forEach.call(table.querySelectorAll('tbody tr'), function (tr) {
+        Array.prototype.forEach.call(tr.querySelectorAll('td'), function (td, i) {
+          td.setAttribute('data-label', labels[i] || '');
+          /* 把单元格内容收进一个节点，避免文本与 strong/br 被 grid 拆成多个网格项 */
+          var value = document.createElement('span');
+          value.className = 'tc__v';
+          while (td.firstChild) value.appendChild(td.firstChild);
+          td.appendChild(value);
+        });
+      });
+    });
+    document.documentElement.classList.add('js-table-cards');
+  })();
+  </script>
 </body>
 </html>

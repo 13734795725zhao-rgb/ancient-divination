@@ -752,33 +752,33 @@ img { max-width: 100%; height: auto; display: block; }
     padding-top: clamp(2.5rem, 8vh, 4.5rem);
   }
 
+  /* 八卦退到文字之后作收尾钤记，不再抢占首屏视线 */
   .hero__figure {
-    order: -1;
-    justify-content: flex-start;
-    opacity: 0.5;
+    order: 2;
+    justify-content: flex-end;
+    opacity: 0.42;
   }
 
-  .bagua { width: min(60%, 14rem); }
+  .bagua { width: min(38%, 11rem); }
 
   .section {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.75rem;
   }
 
-  .section__rail {
-    position: static;
-  }
+  .section__rail { position: static; }
 
   .label { flex-direction: row; align-items: baseline; gap: 0.75rem; }
-
 }
 
 @media (max-width: 640px) {
   body { font-size: 16px; }
 
+  /* 报头：链接补足 44px 触摸高度 */
   .masthead {
-    padding: 0.75rem var(--gutter);
-    gap: 1rem;
+    align-items: center;
+    padding: 0.35rem var(--gutter);
+    gap: 0.75rem;
   }
 
   .masthead__nav {
@@ -787,19 +787,156 @@ img { max-width: 100%; height: auto; display: block; }
     letter-spacing: 0.1em;
   }
 
-  .hero__title { letter-spacing: 0.06em; }
+  .masthead__nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0;
+  }
 
+  /* 首屏：标题先行，八卦缩为角落小钤 */
+  .hero {
+    gap: 1.25rem;
+    padding-top: clamp(1.75rem, 5vh, 2.75rem);
+    padding-bottom: clamp(2rem, 6vh, 3rem);
+  }
+
+  .hero__title {
+    font-size: clamp(2.35rem, 11vw, 2.9rem);
+    letter-spacing: 0.05em;
+  }
+
+  .hero__dek { font-size: 1rem; line-height: 1.95; }
+
+  .bagua { width: min(42%, 8.5rem); }
+
+  /* 文章列表 */
   .entry__link {
     grid-template-columns: 2.25rem minmax(0, 1fr);
     gap: 0 0.75rem;
+    padding: 1.35rem 0;
   }
 
   .entry__go { display: none; }
+  .entry__title { font-size: 1.0625rem; line-height: 1.55; }
+  .entry__excerpt { font-size: 0.875rem; line-height: 1.8; }
 
-  .entry__title { font-size: 1.0625rem; }
+  /* 文章页：标题与留白收紧 */
+  .post { padding-top: clamp(2rem, 6vh, 3rem); }
+
+  .post__head {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .post__title {
+    margin-top: 1rem;
+    font-size: clamp(1.625rem, 7vw, 2rem);
+    line-height: 1.38;
+    letter-spacing: 0.03em;
+  }
+
+  .post__dek { font-size: 1rem; line-height: 1.9; }
 
   .post__body > p:first-child::first-letter { font-size: 2.8em; }
+
+  .prose { font-size: 1rem; line-height: 1.95; }
+  .prose h2 { margin-top: 2.2em; font-size: 1.25rem; }
+  .prose h3 { margin-top: 1.9em; font-size: 1.125rem; }
+  .prose h4 { margin-top: 1.7em; font-size: 0.9375rem; }
+  .prose ul, .prose ol { padding-left: 1.15em; }
+  .prose blockquote {
+    margin: 1.8em 0;
+    padding-left: 1.1em;
+    font-size: 1.0625rem;
+    line-height: 1.9;
+  }
+  .prose img { margin: 1.75em 0; }
+  .prose pre { padding: 1rem; font-size: 0.8125rem; }
+
+  /* 对照表：从被裁切的横滚表改为纵向记录卡，内容全部可见 */
+  .js-table-cards .table-wrap {
+    overflow: visible;
+    width: 100%;
+  }
+
+  .js-table-cards .table-wrap table {
+    display: block;
+    min-width: 0;
+    font-size: 0.875rem;
+  }
+
+  .js-table-cards .table-wrap thead { display: none; }
+  .js-table-cards .table-wrap tbody { display: block; }
+
+  .js-table-cards .table-wrap tr {
+    display: block;
+    padding: 0.9rem 0 1.1rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .js-table-cards .table-wrap tbody tr:first-child {
+    border-top: 1px solid var(--ink);
+  }
+
+  .js-table-cards .table-wrap td {
+    display: grid;
+    grid-template-columns: 4.75rem minmax(0, 1fr);
+    gap: 0.6rem;
+    padding: 0.35rem 0;
+    border: 0;
+    white-space: normal;
+  }
+
+  .js-table-cards .table-wrap td::before {
+    content: attr(data-label);
+    grid-column: 1;
+    grid-row: 1;
+    font-family: var(--sans);
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    line-height: 1.7;
+    color: var(--ink-faint);
+    padding-top: 0.25rem;
+    overflow-wrap: anywhere;
+  }
+
+  .js-table-cards .table-wrap .tc__v {
+    grid-column: 2;
+    grid-row: 1;
+    display: block;
+    min-width: 0;
+  }
+
+  .js-table-cards .table-wrap td:first-child {
+    display: block;
+    white-space: normal;
+    margin-bottom: 0.35rem;
+    padding: 0 0 0 0.6rem;
+    border-left: 2px solid var(--cinnabar);
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .js-table-cards .table-wrap td:first-child::before { content: none; }
+
+  /* 页脚：名目另起一行，避免末尾只剩半句 */
+  .patronage__verse { font-size: 1.0625rem; letter-spacing: 0.12em; }
+  .patronage__items { display: block; margin-top: 0.15rem; }
+  .patronage__qr { width: 8rem; }
+  .site-foot__line { font-size: 0.8125rem; letter-spacing: 0.1em; }
 }
+
+@media (max-width: 360px) {
+  :root { --gutter: 1rem; }
+  .masthead__mark { font-size: 0.8125rem; letter-spacing: 0.16em; }
+  .masthead__nav { gap: 0.6rem; font-size: 0.625rem; letter-spacing: 0.05em; }
+  .hero__title { font-size: 2.25rem; }
+  .entry__link { grid-template-columns: 1.75rem minmax(0, 1fr); }
+  .entry__title { font-size: 1rem; }
+  .js-table-cards .table-wrap td { grid-template-columns: 4rem minmax(0, 1fr); }
+}
+
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
