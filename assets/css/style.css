@@ -352,6 +352,10 @@ img { max-width: 100%; height: auto; display: block; }
 /* 宽屏下表格可用满标题栏的宽度，避免长文本列被压得过窄 */
 @media (min-width: 900px) {
   .table-wrap { width: calc(100% + 6rem); }
+
+  /* 末列多为「吻合度」这类短评，给最小宽度，免得被长文本列挤成竖排 */
+  .table-wrap th:last-child,
+  .table-wrap td:last-child { min-width: 7.5rem; }
 }
 
 .table-wrap table { min-width: 32rem; }
