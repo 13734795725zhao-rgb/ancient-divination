@@ -5,6 +5,8 @@ description: >-
 author: 幻蝶
 lang: zh-CN
 timezone: Asia/Shanghai
+# 允许署名时间晚于构建时刻的文章照常生成（默认 false 会把它静默排除，导致推上去却不显示）
+future: true
 
 url: "https://13734795725zhao-rgb.github.io"
 baseurl: "/ancient-divination"
