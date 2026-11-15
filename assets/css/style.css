@@ -308,6 +308,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 .prose li + li { margin-top: 0.5em; }
 
+/* 条目常带「（方向完全吻合）」这类尾注，避免末行只剩一两个字 */
+.prose li { text-wrap: pretty; }
+
 .prose li::marker { color: var(--ink-faint); }
 
 .prose hr {
