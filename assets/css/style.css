@@ -521,14 +521,24 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0;
 }
 
-/* 首字下沉：仅当正文以段落开头时生效，避免落在章节中间的段落上 */
-.post__body > p:first-child::first-letter {
+/* 首字下沉：仅当正文以段落开头时生效；文首注记不参与 */
+.post__body > p:first-child:not(.post__note)::first-letter {
   float: left;
   font-size: 3.6em;
   line-height: 0.92;
   padding: 0.06em 0.14em 0 0;
   color: var(--cinnabar);
   font-weight: 600;
+}
+
+/* 文首注记：楷体小字，不参与首字下沉 */
+.post__note {
+  margin: 0 0 1.5rem;
+  font-family: var(--kai);
+  font-size: 0.875rem;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
 }
 
 .post__foot {
@@ -848,7 +858,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   .post__dek { font-size: 1rem; line-height: 1.9; }
 
-  .post__body > p:first-child::first-letter { font-size: 2.8em; }
+  .post__body > p:first-child:not(.post__note)::first-letter { font-size: 2.8em; }
 
   .prose { font-size: 1rem; line-height: 1.95; }
   .prose h2 { margin-top: 2.2em; font-size: 1.25rem; }
