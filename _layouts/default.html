@@ -83,6 +83,45 @@
     });
     document.documentElement.classList.add('js-table-cards');
   })();
+
+  /* 标题最多两行：超出时逐级微缩字号，避免长标题排成三行以上。
+     窗口尺寸变化后重置基准字号再重算，保证宽屏恢复原始大字。 */
+  (function () {
+    var titles = document.querySelectorAll('.post__title');
+    if (!titles.length) return;
+
+    function fit(el) {
+      el.style.fontSize = '';
+      var base = parseFloat(getComputedStyle(el).fontSize);
+      var min = Math.max(20, base * 0.6);
+      var size = base;
+      var guard = 0;
+      while (size > min && guard++ < 40) {
+        var cs = getComputedStyle(el);
+        var lh = parseFloat(cs.lineHeight) || size * 1.28;
+        if (el.getBoundingClientRect().height <= lh * 2 + 1) break;
+        size -= 1;
+        el.style.fontSize = size + 'px';
+      }
+    }
+
+    function run() {
+      for (var i = 0; i < titles.length; i++) fit(titles[i]);
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(run);
+    } else {
+      run();
+    }
+    window.addEventListener('load', run);
+
+    var timer;
+    window.addEventListener('resize', function () {
+      clearTimeout(timer);
+      timer = setTimeout(run, 150);
+    });
+  })();
   </script>
 </body>
 </html>
